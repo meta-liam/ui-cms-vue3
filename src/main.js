@@ -8,6 +8,9 @@ import 'lin/plugin'
 import { filters } from 'lin/filter'
 import permissionDirective from 'lin/directive/authorize'
 
+// 加载mockServer
+import './mock/mockServer.js'
+
 import App from '@/app.vue'
 import store from '@/store'
 import router from '@/router'

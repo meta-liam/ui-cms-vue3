@@ -26,6 +26,7 @@
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.14",
     "mitt": "^2.1.0",
+    "mockjs": "^1.1.0",
     "moment": "^2.24.0",
     "photoswipe": "^4.1.2",
     "screenfull": "^4.2.0",
