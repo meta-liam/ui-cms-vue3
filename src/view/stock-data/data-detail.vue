@@ -3,7 +3,7 @@
     <div class="container_detail">
       <div class="cd_title">
         <h2>标题中国富强</h2>
-        <h5>{{ $route.query.id }}</h5>
+        <h5>{{ $route.params.id }}</h5>
       </div>
       <div class="cd_row1_left">
         <h5>沪近6个月成交量</h5>
@@ -29,7 +29,24 @@
     </div>
   </div>
 </template>
+<script>
+import { onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 
+export default {
+  components: {},
+  setup() {
+    const router = useRouter()
+
+    onMounted(() => {
+      // this.$route.query
+      const codeID = router.currentRoute?.value.params.id
+      console.log('url:', codeID)
+    })
+    return {}
+  },
+}
+</script>
 <style>
 .container_detail {
   border: 1px solid rgb(247, 3, 3);

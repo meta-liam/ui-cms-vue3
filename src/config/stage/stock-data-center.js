@@ -30,7 +30,7 @@ const bookRouter = {
       title: '个股信息',
       type: 'view',
       name: 'BookCreate',
-      route: '/stock-data/detail',
+      route: '/stock-data/detail/:id(.*)',
       filePath: 'view/stock-data/data-detail.vue',
       inNav: false,
       icon: 'iconfont icon-add',
