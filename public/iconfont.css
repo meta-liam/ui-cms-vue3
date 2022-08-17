@@ -235,3 +235,13 @@
   content: "\e64c";
 }
 
+.liam_container ul, .liam_container ls, .liam_container ol{
+  margin: 0;
+  padding: 0;
+}
+
+.liam_container li {
+  display: inline;
+  list-style: none;
+  text-align: left;
+}
