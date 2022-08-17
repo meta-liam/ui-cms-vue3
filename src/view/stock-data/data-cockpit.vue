@@ -5,6 +5,10 @@
         <h2>标题大行情</h2>
         <h5>2022-07-29 16:50</h5>
       </div>
+      <div class="cc_row3_merge">
+        <h5 class="title">沪近6个月成交量</h5>
+        <Chart :chart_option="historyDB" chart_id="charts_id1_41" chart_class="chart_class2"></Chart>
+      </div>
       <div class="cc_row1_left">
         <h5>常见指数</h5>
       </div>
@@ -22,13 +26,78 @@
       </div>
       <div class="cc_row2_right">
         <h5>自选股票行情</h5>
-      </div>
-      <div class="cc_row3_merge">
-        <h5>沪近6个月成交量</h5>
+        <ol>
+          <ul>
+            <li>代码</li>
+            <li>名称</li>
+            <li>涨跌幅</li>
+            <li>最新价</li>
+          </ul>
+          <ul>
+            <li>603201</li>
+            <li>N常润</li>
+            <li>44.01%</li>
+            <li>44.01</li>
+          </ul>
+          <ul>
+            <li>688170</li>
+            <li>德龙激光</li>
+            <li>1.01%</li>
+            <li>12.01</li>
+          </ul>
+          <ul>
+            <li>688115</li>
+            <li>思林杰</li>
+            <li>-1.01%</li>
+            <li>3.01</li>
+          </ul>
+          <ul>
+            <a
+              ><li>603201</li>
+              <li>N常润</li>
+              <li>44.01%</li>
+              <li>44.01</li></a
+            >
+          </ul>
+          <ul>
+            <a
+              ><li>688170</li>
+              <li>德龙激光</li>
+              <li>1.01%</li>
+              <li>12.01</li></a
+            >
+          </ul>
+          <ul>
+            <a
+              ><li>688115</li>
+              <li>思林杰</li>
+              <li>-1.01%</li>
+              <li>3.01</li></a
+            >
+          </ul>
+        </ol>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+import { onMounted } from 'vue'
+import historyDB from '../../data/stock/priceLine001979'
+import Chart from '../components/Chart.vue'
+
+export default {
+  components: {
+    Chart,
+  },
+  setup() {
+    onMounted(() => {
+      // this.$route.query
+    })
+    return { historyDB }
+  },
+}
+</script>
 
 <style>
 .container_cockpit {
@@ -78,6 +147,7 @@
   left: 0;
   bottom: 20vh;
   border: 1px solid rgb(24, 31, 224);
+  z-index: 10;
 }
 
 .cc_row2_middle {
@@ -87,6 +157,7 @@
   right: 28.3%;
   bottom: 20vh;
   border: 1px solid rgb(223, 13, 164);
+  z-index: 10;
 }
 
 .cc_row2_right {
@@ -96,11 +167,12 @@
   right: 0;
   bottom: 20vh;
   border: 1px solid #aaa;
+  z-index: 10;
 }
 
 .cc_row3_merge {
   width: 100%;
-  height: 20vh;
+  height: 30vh;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -110,7 +182,7 @@
 }
 
 .container_cockpit h5 {
-  margin: 2px;
+  margin: 0.1vh;
 }
 
 .container_cockpit hr {
@@ -121,7 +193,7 @@
 }
 
 .container_cockpit ol {
-  margin: 1vw;
+  margin: 1hw;
 }
 
 .chart_class2 {
@@ -129,6 +201,9 @@
   height: 30vh;
   padding: 0;
   margin: 0;
+  position: absolute;
+  bottom: -5vh;
+  z-index: 1;
 }
 
 .cc_title h2 {
@@ -195,9 +270,9 @@
   width: 100%;
   clear: both;
   border-bottom: 1px solid #e8e8e8;
-  margin: 2px 0;
-  height: 2vw;
-  line-height: 2vw;
+  margin: 0.3vh 0;
+  height: 3.5vh;
+  line-height: 3.5vh;
 }
 
 .cc_row2_right li {
@@ -212,5 +287,12 @@
 }
 .cc_row3_merge h5 {
   padding-left: 1vw;
+  position: absolute;
+  width: 30%;
+  text-align: center;
+  right: 40%;
+  bottom: 16vh;
+  /* border: 1px solid rgb(198, 234, 21); */
+  z-index: 2;
 }
 </style>

@@ -24,26 +24,31 @@
         <h5>沪近6个月成交量</h5>
       </div>
       <div class="cd_row3_merge">
-        <h5>沪近6个月成交量</h5>
+        <h5>近6个月成交量</h5>
+        <Chart :chart_option="historyDB" chart_id="charts_id1_41" chart_class="chart_class2"></Chart>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import historyDB from '../../data/stock/priceLine001979'
+import Chart from '../components/Chart.vue'
 
 export default {
-  components: {},
+  components: {
+    Chart,
+  },
   setup() {
     const router = useRouter()
-
+    let codeID = ref('')
     onMounted(() => {
       // this.$route.query
-      const codeID = router.currentRoute?.value.params.id
+      codeID = router.currentRoute?.value.params.id
       console.log('url:', codeID)
     })
-    return {}
+    return { historyDB, codeID }
   },
 }
 </script>
@@ -117,7 +122,7 @@ export default {
 
 .cd_row3_merge {
   width: 100%;
-  height: 20vh;
+  height: 30vh;
   position: absolute;
   right: 0;
   bottom: 0;
@@ -146,6 +151,9 @@ export default {
   height: 30vh;
   padding: 0;
   margin: 0;
+  position: absolute;
+  bottom: -5vh;
+  z-index: 1;
 }
 
 .cd_title h2 {
@@ -194,5 +202,16 @@ export default {
 
 .cd_row2_right img {
   width: 80%;
+}
+
+.cd_row3_merge h5 {
+  padding-left: 1vw;
+  position: absolute;
+  width: 30%;
+  text-align: center;
+  right: 40%;
+  bottom: 16vh;
+  /* border: 1px solid rgb(198, 234, 21); */
+  z-index: 2;
 }
 </style>

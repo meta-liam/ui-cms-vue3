@@ -2,6 +2,8 @@ import Utils from '@/lin/util/util'
 import adminConfig from './admin'
 import bookConfig from './book' // 引入图书管理路由文件
 import stockData from './stock-data-center'
+import cron from './data-cron'
+import stock from './data-stock'
 import pluginsConfig from './plugin'
 
 // eslint-disable-next-line import/no-mutable-exports
@@ -47,6 +49,8 @@ let homeRouter = [
   },
   bookConfig,
   stockData,
+  cron,
+  stock,
   adminConfig,
 ]
 
