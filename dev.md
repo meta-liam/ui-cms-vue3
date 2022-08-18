@@ -37,3 +37,4 @@ nvm alias default v16.14.0
 
 [element](https://github.com/element-plus/element-plus)
 [element-plus](https://element-plus.org/zh-CN/)
+[layout](https://element-plus.gitee.io/zh-CN/component/layout.html)
