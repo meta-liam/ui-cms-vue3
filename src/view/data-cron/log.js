@@ -14,12 +14,10 @@ const getItems = async v => {
     ls.push({
       id: ii,
       date: '2016-05-07',
-      type: `sina-price-his-${ii}`,
+      taskId: `200-11-${ii}`,
       created: '2022-06-01 12:35:22',
-      updated: '2022-06-01 12:35:29',
+      info: '{"type":"http","code":200,"result":"{"code": 0, "data": {"task_id": 11, "list": []}}"}',
       status: i % 3,
-      taskId: 'CA-90036',
-      platform: 'stock',
     })
   }
   await Utils.wait(100)

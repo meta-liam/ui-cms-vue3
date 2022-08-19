@@ -10,4 +10,15 @@ Utils.wait = async ms => {
   return await _wait
 }
 
+Utils.intToBoolean = v => {
+  if (v === 1 || v === -1 || v === '1' || v === '-1') return true
+  if (v === true || v === 'true' || v === 'True') return true
+  return false
+}
+
+Utils.booleanToInt = v => {
+  if (v === true || v === 1 || v === 'True') return 1
+  return 0
+}
+
 export default Utils

@@ -13,20 +13,16 @@
     </div>
     <el-table :data="items" style="width: 100%" height="75vh">
       <el-table-column fixed prop="id" label="ID" width="80" />
-      <el-table-column prop="type" label="类型" width="150" />
-      <el-table-column prop="created" label="开始时间" width="180" />
-      <el-table-column prop="updated" label="结束时间" width="180" />
-      <el-table-column prop="status" label="状态" width="100" />
-      <el-table-column prop="taskId" label="TaskID" width="150" />
-      <el-table-column prop="platform" label="平台" width="150" />
+      <el-table-column fixed prop="taskId" label="TaskID" width="120" />
+      <el-table-column prop="created" label="时间" width="180" />
+      <el-table-column prop="status" label="状态" width="80" />
+      <el-table-column prop="info" label="信息" width="550" />
     </el-table>
 
     <el-pagination
       v-model:currentPage="page.current"
       v-model:page-size="page.pageSize"
       :page-sizes="[10, 20, 30, 40]"
-      :small="small"
-      :disabled="disabled"
       background
       layout="total, sizes, prev, pager, next, jumper"
       :total="total"

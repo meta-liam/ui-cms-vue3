@@ -22,3 +22,8 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# my self
+*.vue.rej
+*.js.rej
+*.local
