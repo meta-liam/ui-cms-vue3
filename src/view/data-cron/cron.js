@@ -53,6 +53,7 @@ const optionsWorker = [
 
 const rules = {
   name: [{ required: true, message: 'Please input name', trigger: 'blur' }],
+  spec: [{ required: true, message: 'Please input spec', trigger: 'blur' }],
 }
 const getItems = async v => {
   const rs = await Cron.getItems(v)
@@ -62,34 +63,17 @@ const getItems = async v => {
     pagination: {},
   }
   if (rs.data) {
-    return rs.data
+    db.list = rs.data.list
+    db.pagination = rs.data.pagination
+    for (let i = 0; i < db.list.length; i++) {
+      const item = db.list[i]
+      item.created = Utils.intTimeToString(item?.createdAt)
+      item.updated = Utils.intTimeToString(item?.doUpdatedAt)
+      // console.log('item:', item, item?.created)
+    }
+    return db
   }
   return db
-}
-
-const getItems2 = async v => {
-  // console.log('getItem:', v)
-  const ls = []
-  for (let i = 0; i < v.pageSize; i++) {
-    const ii = v.current * v.pageSize + i
-    ls.push({
-      id: `185702333412307-${ii}`,
-      name: `200-11-${ii}`,
-      created: '2022-06-01 12:35:20',
-      updated: '2022-06-01 12:35:22',
-      spec: '1/8 * * * *',
-      status: i % 2,
-      isNotify: 1,
-      doStatus: 10,
-      workerType: i % 3,
-    })
-  }
-  await Utils.wait(100)
-  const rs = {
-    list: ls,
-    pagination: { total: ls.length * 100 },
-  }
-  return rs
 }
 
 const clearHistory = async v => {
@@ -100,18 +84,24 @@ const clearHistory = async v => {
 
 const addOrEditItem = async db => {
   console.log('addOrEditItem:', db)
-  return true
+  if (db.id === '0') {
+    // eslint-disable-next-line no-return-await
+    return await Cron.create(db)
+  }
+  // eslint-disable-next-line no-return-await
+  return await Cron.edit(db)
 }
 
 const deleteItem = async idx => {
-  // const rs = await deleteItemByApi(idx);
-  console.log('deleteItem :', idx)
+  const rs = await Cron.delete(idx)
+  console.log('deleteItem :', rs)
   return true
 }
 
 const setAddNew = db => ({
   editTitle: '新加任务',
-  ...formItem,
+  isSubmit: false,
+  ...dataItem,
   ...db,
 })
 
@@ -122,7 +112,6 @@ const setEditData = db => ({
 })
 
 export {
-  getItems2,
   setAddNew,
   setEditData,
   deleteItem,

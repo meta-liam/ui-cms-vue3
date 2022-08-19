@@ -126,9 +126,11 @@ export default {
         case 'form-submit':
           // eslint-disable-next-line no-case-declarations
           const rs1 = await addOrEditItem(db)
+          console.log('form-submit:rs=', rs1)
           if (rs1) {
             ElMessage({ message: `[${db.name}操作成功]`, type: 'success' })
             await getData()
+            drawer.value = false
           } else {
             ElMessage({ message: `[${db.name}操作成功]`, type: 'error' })
           }
