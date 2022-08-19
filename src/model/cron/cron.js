@@ -40,6 +40,24 @@ class Cron {
       handleError: true,
     })
   }
+
+  async getLogs(param) {
+    return _axios({
+      method: 'get',
+      url: 'cms-api/v1/task-logs',
+      params: param,
+      handleError: true,
+    })
+  }
+
+  async getSpiderLogs(param) {
+    return _axios({
+      method: 'get',
+      url: 'cms-api/v1/spider-task-logs',
+      params: param,
+      handleError: true,
+    })
+  }
 }
 
 export default new Cron()

@@ -3,7 +3,7 @@
  */
 import Mock from 'mockjs'
 import data from './data.json'
-// import tasks from './stock/cronList.json'
+// import { getLogs, getSpiderLogs } from './stock/cron'
 
 // my data :发布时 const isMock = false , dev: true
 const isMock = true
@@ -27,6 +27,8 @@ if (isMock) {
   // Mock.mock(`${BASE_URL}cms-api/v1/task?add`, { code: 0 })
   // Mock.mock(`${BASE_URL}cms-api/v1/task?edit`, { code: 0 })
   // Mock.mock(`${BASE_URL}cms-api/v1/task?delete`, { code: 0 })
+  // Mock.mock(`${BASE_URL}cms-api/v1/task-logs?pageSize=10&current=1&name=`, getLogs)
+  // Mock.mock(`${BASE_URL}cms-api/v1/spider-task-logs?pageSize=10&current=1&name=`, getSpiderLogs)
 }
 
 // export default ???  不需要向外暴露任何数据, 只需要保存能执行即可

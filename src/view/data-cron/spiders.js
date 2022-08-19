@@ -1,5 +1,6 @@
 /* eslint-disable class-methods-use-this */
 import Utils from '../../utils/utils'
+import Cron from '../../model/cron/cron'
 
 // const dataItem = {
 //   id: 0,
@@ -7,27 +8,24 @@ import Utils from '../../utils/utils'
 // }
 
 const getItems = async v => {
-  console.log('getItem:', v)
-  const ls = []
-  for (let i = 0; i < v.pageSize; i++) {
-    const ii = v.current * v.pageSize + i
-    ls.push({
-      id: ii,
-      date: '2016-05-07',
-      type: `sina-price-his-${ii}`,
-      created: '2022-06-01 12:35:22',
-      updated: '2022-06-01 12:35:29',
-      status: i % 3,
-      taskId: 'CA-90036',
-      platform: 'stock',
-    })
+  const rs = await Cron.getSpiderLogs(v)
+  console.log('spider getItems:', rs)
+  const db = {
+    list: [],
+    pagination: {},
   }
-  await Utils.wait(100)
-  const rs = {
-    list: ls,
-    pagination: { total: ls.length * 100 },
+  if (rs.data) {
+    db.list = rs.data.list
+    db.pagination = rs.data.pagination
+    for (let i = 0; i < db.list.length; i++) {
+      const item = db.list[i]
+      item.created = Utils.intTimeToString(item?.createdAt)
+      item.updated = Utils.intTimeToString(item?.updatedAt)
+      // console.log('item:', item, item?.created)
+    }
+    return db
   }
-  return rs
+  return db
 }
 
 const clearHistory = async v => {

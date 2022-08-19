@@ -1,31 +1,29 @@
 /* eslint-disable class-methods-use-this */
 import Utils from '../../utils/utils'
-
+import Cron from '../../model/cron/cron'
 // const dataItem = {
 //   id: 0,
 //   createdAt: 0
 // }
 
 const getItems = async v => {
-  console.log('getItem:', v)
-  const ls = []
-  for (let i = 0; i < v.pageSize; i++) {
-    const ii = v.current * v.pageSize + i
-    ls.push({
-      id: ii,
-      date: '2016-05-07',
-      taskId: `200-11-${ii}`,
-      created: '2022-06-01 12:35:22',
-      info: '{"type":"http","code":200,"result":"{"code": 0, "data": {"task_id": 11, "list": []}}"}',
-      status: i % 3,
-    })
+  const rs = await Cron.getLogs(v)
+  console.log('log getItems:', rs)
+  const db = {
+    list: [],
+    pagination: {},
   }
-  await Utils.wait(100)
-  const rs = {
-    list: ls,
-    pagination: { total: ls.length * 100 },
+  if (rs.data) {
+    db.list = rs.data.list
+    db.pagination = rs.data.pagination
+    for (let i = 0; i < db.list.length; i++) {
+      const item = db.list[i]
+      item.created = Utils.intTimeToString(item?.createdAt)
+      // console.log('item:', item, item?.created)
+    }
+    return db
   }
-  return rs
+  return db
 }
 
 const clearHistory = async v => {
