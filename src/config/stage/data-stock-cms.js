@@ -4,16 +4,16 @@ const bookRouter = {
   title: '股票管理',
   type: 'folder', // 类型: folder, tab, view
   icon: 'iconfont icon-tushuguanli',
-  filePath: 'view/stock-data/', // 文件路径
+  filePath: 'view/stock-cms/', // 文件路径
   order: null,
   inNav: true,
   children: [
     {
       title: '关注列表',
       type: 'view',
-      name: 'BookCreate',
-      route: '/stock-data/index',
-      filePath: 'view/stock-data/data-index.vue',
+      name: 'Symbols',
+      route: '/stock/symbol/list',
+      filePath: 'view/stock-cms/symbol-list.vue',
       inNav: true,
       icon: 'iconfont icon-add',
     },
