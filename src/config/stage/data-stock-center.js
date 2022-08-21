@@ -4,7 +4,7 @@ const bookRouter = {
   title: '数据大屏',
   type: 'folder', // 类型: folder, tab, view
   icon: 'iconfont icon-tushuguanli',
-  filePath: 'view/stock-data/', // 文件路径
+  filePath: 'view/center-stock/', // 文件路径
   order: null,
   inNav: true,
   children: [
@@ -12,8 +12,8 @@ const bookRouter = {
       title: '信息中心',
       type: 'view',
       name: 'BookCreate',
-      route: '/stock-data/index',
-      filePath: 'view/stock-data/data-index.vue',
+      route: '/center-stock/index',
+      filePath: 'view/center-stock/data-index.vue',
       inNav: true,
       icon: 'iconfont icon-add',
     },
@@ -21,8 +21,8 @@ const bookRouter = {
       title: '大盘信息',
       type: 'view',
       name: 'BookCreate',
-      route: '/stock-data/cockpit',
-      filePath: 'view/stock-data/data-cockpit.vue',
+      route: '/center-stock/cockpit',
+      filePath: 'view/center-stock/data-cockpit.vue',
       inNav: true,
       icon: 'iconfont icon-tushuguanli',
     },
@@ -30,8 +30,8 @@ const bookRouter = {
       title: '个股信息',
       type: 'view',
       name: 'BookCreate',
-      route: '/stock-data/detail/:id(.*)',
-      filePath: 'view/stock-data/data-detail.vue',
+      route: '/center-stock/detail/:id(.*)',
+      filePath: 'view/center-stock/data-detail.vue',
       inNav: false,
       icon: 'iconfont icon-add',
     },
