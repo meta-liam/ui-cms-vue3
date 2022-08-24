@@ -3,6 +3,7 @@
 ```sell
 npm i --registry=https://registry.npmmirror.com
 
+npm run dev
 npm run serve
 npm run build 
 

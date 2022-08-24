@@ -4,6 +4,7 @@ import bookConfig from './book' // 引入图书管理路由文件
 import dataStockCenter from './data-stock-center'
 import dataCron from './data-cron'
 import dataStockCms from './data-stock-cms'
+import coreUser from './core-user'
 import pluginsConfig from './plugin'
 
 // eslint-disable-next-line import/no-mutable-exports
@@ -49,6 +50,7 @@ let homeRouter = [
   },
   bookConfig,
   dataStockCenter,
+  coreUser,
   dataCron,
   dataStockCms,
   adminConfig,
