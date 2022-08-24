@@ -25,7 +25,7 @@
       </div>
       <div class="cd_row3_merge">
         <h5>近6个月成交量</h5>
-        <Chart :chart_option="historyDB" chart_id="charts_id1_41" chart_class="chart_class2"></Chart>
+        <Chart :chart_option="historyData.option" chart_id="charts_id1_41" chart_class="chart_class2"></Chart>
       </div>
     </div>
   </div>
@@ -35,6 +35,7 @@ import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import historyDB from '../../data/stock/priceLine001979'
 import Chart from '../components/Chart.vue'
+import { getSymbolHisPriceItems } from './symbol'
 
 export default {
   components: {
@@ -43,12 +44,15 @@ export default {
   setup() {
     const router = useRouter()
     let codeID = ref('')
-    onMounted(() => {
+    const historyData = ref('')
+    onMounted(async () => {
       // this.$route.query
       codeID = router.currentRoute?.value.params.id
       console.log('url:', codeID)
+      historyData.value = await getSymbolHisPriceItems(codeID) // ('sz001979')
+      console.log('db:', historyData.value.option)
     })
-    return { historyDB, codeID }
+    return { historyDB, codeID, historyData }
   },
 }
 </script>
