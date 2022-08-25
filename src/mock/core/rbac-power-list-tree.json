@@ -1,0 +1,431 @@
+{
+  "code": 0,
+  "data": { "list":
+  [
+    {
+      "id": 1,
+      "name": "xTool",
+      "fid": 0,
+      "level": 1,
+      "children": [
+        {
+          "id": 4,
+          "name": "机器",
+          "fid": 1,
+          "level": 2,
+          "children": [
+            {
+              "id": 5,
+              "name": "D系列",
+              "fid": 4,
+              "level": 3,
+              "children": [
+                {
+                  "id": 7,
+                  "name": "D1",
+                  "fid": 5,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 9,
+                  "name": "D1 Pro",
+                  "fid": 5,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 17,
+              "name": "M系列",
+              "fid": 4,
+              "level": 3,
+              "children": [
+                {
+                  "id": 18,
+                  "name": "M1",
+                  "fid": 17,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 43,
+              "name": "P系列",
+              "fid": 4,
+              "level": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 8,
+          "name": "耗材",
+          "fid": 1,
+          "level": 2,
+          "children": [
+            {
+              "id": 20,
+              "name": "原材料",
+              "fid": 8,
+              "level": 3,
+              "children": [
+                {
+                  "id": 45,
+                  "name": "木板",
+                  "fid": 20,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 21,
+              "name": "半成品",
+              "fid": 8,
+              "level": 3,
+              "children": []
+            },
+            {
+              "id": 22,
+              "name": "成品",
+              "fid": 8,
+              "level": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 16,
+          "name": "配件",
+          "fid": 1,
+          "level": 2,
+          "children": [
+            {
+              "id": 19,
+              "name": "M系列",
+              "fid": 16,
+              "level": 3,
+              "children": [
+                {
+                  "id": 56,
+                  "name": "垫高柱",
+                  "fid": 19,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 60,
+                  "name": "刀座",
+                  "fid": 19,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 62,
+                  "name": "刀头",
+                  "fid": 19,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 63,
+                  "name": "粘塑胶垫",
+                  "fid": 19,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 47,
+              "name": "通用",
+              "fid": 16,
+              "level": 3,
+              "children": [
+                {
+                  "id": 58,
+                  "name": "RA1",
+                  "fid": 47,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 59,
+                  "name": "RA2",
+                  "fid": 47,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 64,
+                  "name": "RA2 Pro",
+                  "fid": 47,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 65,
+                  "name": "Air assist",
+                  "fid": 47,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 66,
+                  "name": "净化器",
+                  "fid": 47,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 67,
+                  "name": "净化器滤芯",
+                  "fid": 47,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 49,
+              "name": "P系列",
+              "fid": 16,
+              "level": 3,
+              "children": []
+            },
+            {
+              "id": 50,
+              "name": "D系列",
+              "fid": 16,
+              "level": 3,
+              "children": [
+                {
+                  "id": 51,
+                  "name": "Enclosure",
+                  "fid": 50,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 52,
+                  "name": "Extension Kit",
+                  "fid": 50,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 53,
+                  "name": "Enclosure Max",
+                  "fid": 50,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 54,
+                  "name": "Enclosure Add-on",
+                  "fid": 50,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 55,
+                  "name": "养护包",
+                  "fid": 50,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 57,
+                  "name": "垫高柱",
+                  "fid": 50,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "MakeBlock",
+      "fid": 0,
+      "level": 1,
+      "children": [
+        {
+          "id": 10,
+          "name": "mBot",
+          "fid": 2,
+          "level": 2,
+          "children": [
+            {
+              "id": 23,
+              "name": "mBot",
+              "fid": 10,
+              "level": 3,
+              "children": [
+                {
+                  "id": 25,
+                  "name": "mBot",
+                  "fid": 23,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 26,
+                  "name": "mBot Neo",
+                  "fid": 23,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 27,
+                  "name": "mBot Mega",
+                  "fid": 23,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 28,
+                  "name": "mBot Ultimate",
+                  "fid": 23,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 29,
+                  "name": "mBot Ranger",
+                  "fid": 23,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 24,
+              "name": "mBot Add-on",
+              "fid": 10,
+              "level": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 11,
+          "name": "coding Toys",
+          "fid": 2,
+          "level": 2,
+          "children": [
+            {
+              "id": 12,
+              "name": "mTiny",
+              "fid": 11,
+              "level": 3,
+              "children": []
+            },
+            {
+              "id": 13,
+              "name": "Halocode",
+              "fid": 11,
+              "level": 3,
+              "children": [
+                {
+                  "id": 15,
+                  "name": "2-2-2-2U2",
+                  "fid": 13,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 30,
+              "name": "CyberPi",
+              "fid": 11,
+              "level": 3,
+              "children": []
+            },
+            {
+              "id": 31,
+              "name": "Codey Rocky",
+              "fid": 11,
+              "level": 3,
+              "children": []
+            }
+          ]
+        },
+        {
+          "id": 32,
+          "name": "STEM Toys",
+          "fid": 2,
+          "level": 2,
+          "children": [
+            {
+              "id": 33,
+              "name": "Nextmaker",
+              "fid": 32,
+              "level": 3,
+              "children": [
+                {
+                  "id": 38,
+                  "name": "Nextmaker Science",
+                  "fid": 33,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 39,
+                  "name": "Nextmaker Box 1-12",
+                  "fid": 33,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 40,
+                  "name": "Nextmaker Box 2-12",
+                  "fid": 33,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            },
+            {
+              "id": 34,
+              "name": "xLight",
+              "fid": 32,
+              "level": 3,
+              "children": [
+                {
+                  "id": 35,
+                  "name": "xLight N1",
+                  "fid": 34,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 36,
+                  "name": "xLight U1",
+                  "fid": 34,
+                  "level": 4,
+                  "children": []
+                },
+                {
+                  "id": 37,
+                  "name": "xLight S1",
+                  "fid": 34,
+                  "level": 4,
+                  "children": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ] },
+  "message": "OK"
+}
