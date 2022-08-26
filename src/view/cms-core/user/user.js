@@ -1,5 +1,6 @@
 import Utils from '../../../utils/utils'
 import User from '../../../model/core/user'
+import { getItems as getRoleItems } from '../rbac/role'
 
 const formItem = {
   isSubmit: false,
@@ -19,6 +20,7 @@ const dataItem = {
   remark: '',
   email: '',
   password: '',
+  roleIds: [],
 }
 
 const optionsStatus = [
@@ -84,5 +86,8 @@ const setEditData = db => ({
   isSubmit: false,
   ...db,
 })
+
+// eslint-disable-next-line no-return-await
+export const getRoles = async v => await getRoleItems(v)
 
 export { setAddNew, setEditData, deleteItem, addOrEditItem, getItems, rules, dataItem, formItem, optionsStatus }

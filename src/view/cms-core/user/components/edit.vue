@@ -29,6 +29,11 @@
     <el-form-item label="电话" prop="phone">
       <el-input v-model="ruleForm.phone" style="width: 20%" />
     </el-form-item>
+    <el-form-item label="角色" prop="roleIds">
+      <el-checkbox-group v-model="ruleForm.roleIds" @change="handleCheckedChange">
+        <el-checkbox v-for="item in roles" :key="item.id" :label="item.id">{{ item.name }} </el-checkbox>
+      </el-checkbox-group>
+    </el-form-item>
     <el-form-item label="备注" prop="remark">
       <el-input v-model="ruleForm.remark" style="width: 20%" />
     </el-form-item>
@@ -40,10 +45,13 @@
 </template>
 
 <script>
-import { reactive, ref, getCurrentInstance } from 'vue'
-import { rules, optionsStatus } from '../user'
+import { reactive, ref, getCurrentInstance, onMounted } from 'vue'
+import { rules, optionsStatus, getRoles } from '../user'
 // import type { FormInstance, FormRules } from 'element-plus'
 
+// const roles = [
+//   { id: '1', name: 'na' }, { id: '2', name: 'na2' }
+// ]
 export default {
   props: {
     item: {},
@@ -51,6 +59,7 @@ export default {
   setup(props) {
     console.log('[INFO] setup:', props.item)
     const ruleFormRef = ref({})
+    const roles = ref({})
     const ruleForm = reactive({
       ...props.item,
     })
@@ -76,10 +85,18 @@ export default {
         }
       })
     }
+    const handleCheckedChange = value => {
+      console.log('handleCheckedChange 1:', value)
+    }
     const resetForm = (formEl, event) => {
       callBack('form-cancel', ruleForm, event)
     }
-    return { optionsStatus, resetForm, submitForm, rules, ruleForm, ruleFormRef }
+    onMounted(async () => {
+      const db = await getRoles({})
+      roles.value = db.list
+      console.log('powerTree.value:', roles.value)
+    })
+    return { roles, handleCheckedChange, optionsStatus, resetForm, submitForm, rules, ruleForm, ruleFormRef }
   },
 }
 </script>
