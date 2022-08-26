@@ -126,15 +126,17 @@ export default defineComponent({
 </script>
 <style>
 .liam_container {
-  width: 100%;
-  padding: 24px;
+  width: 96%;
+  padding: 2%;
 }
 
 .sku-class {
   width: 100%;
+  /* padding: 12px 24px; */
   background: #fff;
   border-radius: 2px;
   clear: both;
+  overflow: hidden;
 }
 
 .sku-class-edit {
