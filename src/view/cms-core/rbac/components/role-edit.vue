@@ -15,9 +15,12 @@
       <el-select v-model="ruleForm.status" class="m-2" placeholder="Select">
         <el-option v-for="item in optionsStatus" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
+      {{ ruleForm.powerIds }}
     </el-form-item>
     <el-form-item label="权限" prop="powerIds">
-      {{ ruleForm.powerIds }}
+      <div>
+        <power-checkbox :item="ruleForm" @handle="handleCheckBox"></power-checkbox>
+      </div>
     </el-form-item>
     <el-form-item>
       <el-button type="primary" @click="submitForm(ruleFormRef, $event)">提交</el-button>
@@ -29,8 +32,12 @@
 <script>
 import { reactive, ref, getCurrentInstance } from 'vue'
 import { rules, optionsStatus } from '../role'
+import powerCheckbox from './power-checkbox'
 
 export default {
+  components: {
+    powerCheckbox,
+  },
   props: {
     item: {},
   },
@@ -40,7 +47,6 @@ export default {
     const ruleForm = reactive({
       ...props.item,
     })
-    // const reste = { ...dataItem }
     const { proxy } = getCurrentInstance()
     const callBack = (ty, item, event) => {
       // console.log('son:', ty, item);
@@ -49,6 +55,10 @@ export default {
         // eslint-disable-next-line no-unused-expressions
         event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true)
       }
+    }
+    const handleCheckBox = (ty, item) => {
+      // console.log('edit-handleCheckBox:', ty, item)
+      ruleForm.powerIds = item
     }
     const submitForm = async (formEl, event) => {
       console.log('ruleForm:', ruleForm)
@@ -65,7 +75,10 @@ export default {
     const resetForm = (formEl, event) => {
       callBack('form-cancel', ruleForm, event)
     }
-    return { optionsStatus, resetForm, submitForm, rules, ruleForm, ruleFormRef }
+    // onMounted(async () => {
+    //   powerTree.value = await getPowerTreeList({})
+    // })
+    return { handleCheckBox, optionsStatus, resetForm, submitForm, rules, ruleForm, ruleFormRef }
   },
 }
 </script>

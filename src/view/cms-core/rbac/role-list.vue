@@ -130,6 +130,7 @@ export default {
           console.log('[INFO] add:', editIfo.value)
           break
         case 'edit':
+          console.log('edit::1')
           drawer.value = true
           editIfo.value = setEditData(db)
           break

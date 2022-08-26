@@ -1,5 +1,6 @@
 import Utils from '../../../utils/utils'
 import RoleApi from '../../../model/core/role'
+import { getTreeList } from './power'
 
 const formItem = {
   isSubmit: false,
@@ -79,5 +80,8 @@ const setEditData = db => ({
   isSubmit: false,
   ...db,
 })
+
+// eslint-disable-next-line no-return-await
+export const getPowerTreeList = async v => await getTreeList(v)
 
 export { setAddNew, setEditData, deleteItem, addOrEditItem, getItems, rules, dataItem, formItem, optionsStatus }
