@@ -1,7 +1,7 @@
 <template>
   <div class="tree-item">
     <li>{{ showIco(item.showChild) }}</li>
-    <li>{{ item.name }} [id:{{ item.id }}]</li>
+    <li>{{ item.name }}[{{ item.tag }}]</li>
     <li class="edit">
       <a v-show="item.level < 4" @click="callBack('add', item, $event)"> 添加子分类 </a>
       <a @click="callBack('edit', item, $event)">修改</a>

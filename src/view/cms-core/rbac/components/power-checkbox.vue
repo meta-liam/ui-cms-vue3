@@ -1,12 +1,4 @@
 <template>
-  <el-checkbox-group v-model="ruleForm.powerIds" @change="handleCheckedChange">
-    <el-checkbox key="a1" label="10" />
-    <el-checkbox key="a2" label="11" />
-    <el-checkbox v-for="item in powerTree" :key="item.id" :label="item.id"
-      >{{ item.name }} [{{ item.tag }}]</el-checkbox
-    >
-  </el-checkbox-group>
-  ------
   <div>
     <el-tree
       :data="powerTree"

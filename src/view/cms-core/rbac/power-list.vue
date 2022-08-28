@@ -92,7 +92,7 @@ export default defineComponent({
           break
         case 'delete':
           // eslint-disable-next-line no-case-declarations
-          const rs2 = deleteItem(db.id)
+          const rs2 = await deleteItem(db.id)
           if (rs2) {
             ElMessage({ message: `[${db.name}删除成功]`, type: 'success' })
             items.value = await getTreeList()

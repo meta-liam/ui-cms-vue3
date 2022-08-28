@@ -1,3 +1,5 @@
+<!-- eslint-disable vuejs-accessibility/alt-text -->
+<!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <template>
   <div class="login">
     <div class="team-name hidden-sm-and-down"><img src="@/assets/image/login/team-name.png" alt="logo" /></div>
@@ -26,7 +28,7 @@
 import { reactive, ref, onMounted, getCurrentInstance } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
-import axios from 'lin/plugin/axios'
+// eslint-disable-next-line import/no-cycle
 import UserModel from '@/lin/model/user'
 import Utils from '@/lin/util/util'
 import Config from '@/config'
@@ -69,13 +71,9 @@ export default {
     }
 
     const getCaptcha = async () => {
-      axios({
-        method: 'POST',
-        url: 'cms/user/captcha',
-      }).then(result => {
-        ;({ tag } = result)
-        captchaImage.value = result.image
-      })
+      const result = await UserModel.getCaptcha()
+      tag = result
+      captchaImage.value = result.image
     }
 
     /**

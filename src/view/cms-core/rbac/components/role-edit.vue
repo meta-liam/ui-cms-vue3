@@ -15,6 +15,8 @@
       <el-select v-model="ruleForm.status" class="m-2" placeholder="Select">
         <el-option v-for="item in optionsStatus" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
+    </el-form-item>
+    <el-form-item label="权限IDs">
       {{ ruleForm.powerIds }}
     </el-form-item>
     <el-form-item label="权限" prop="powerIds">

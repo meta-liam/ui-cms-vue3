@@ -196,7 +196,8 @@ Utils.hasPermission = (permissions, route, user) => {
     return true
   }
   if (route.permission) {
-    return permissions.some(permission => route.permission.indexOf(permission) > -1)
+    const rs = user?.permissions.some(permission => route.permission.indexOf(permission) > -1)
+    return rs
   }
   return true
 }

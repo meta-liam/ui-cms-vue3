@@ -5,8 +5,9 @@ const bookRouter = {
   type: 'folder', // 类型: folder, tab, view
   icon: 'iconfont icon-tushuguanli',
   filePath: 'view/data-cron/', // 文件路径
-  order: null,
+  order: 30,
   inNav: true,
+  permission: ['data-crons'],
   children: [
     {
       title: '任务列表',
@@ -15,6 +16,7 @@ const bookRouter = {
       route: '/data-center/cron/list',
       filePath: 'view/data-cron/cron-list.vue',
       inNav: true,
+      permission: ['data-cron-list'],
       icon: 'iconfont icon-add',
     },
     {
@@ -24,7 +26,8 @@ const bookRouter = {
       route: '/data-center/cron/log',
       filePath: 'view/data-cron/cron-log.vue',
       inNav: true,
-      icon: 'iconfont icon-tushuguanli',
+      permission: ['data-cron-log'],
+      icon: 'iconfont icon-rizhiguanli',
     },
     {
       title: '爬虫日志',
@@ -33,7 +36,8 @@ const bookRouter = {
       route: '/data-center/spiders/log',
       filePath: 'view/data-cron/spiders-log.vue',
       inNav: true,
-      icon: 'iconfont icon-add',
+      permission: ['data-spiders-logs'],
+      icon: 'iconfont icon-rizhiguanli',
     },
   ],
 }

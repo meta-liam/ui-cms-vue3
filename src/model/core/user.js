@@ -4,7 +4,16 @@ import _axios, { get } from '@/lin/plugin/axios'
 class User {
   // constructor() {}
 
-  async login(data) {
+  async getToken(email, password, captcha, tag) {
+    const data = {
+      name: email,
+      client: 1,
+      loginFlag: 0,
+      password,
+      type: 12,
+      captcha,
+      tag,
+    }
     return _axios({
       method: 'post',
       url: 'cms-api/v1/login',

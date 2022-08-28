@@ -2,7 +2,9 @@
   <div class="liam_container">
     <div class="title">
       <div class="search_box">
-        <el-button type="primary" plain class="add" @click="callBack('add', {})">新加用户</el-button>
+        <el-button v-permission="['core-user-add']" type="primary" plain class="add" @click="callBack('add', {})"
+          >新加用户</el-button
+        >
         <lin-search @query="onQueryChange" ref="searchKeywordDom" class="search" />
         <lin-date-picker @dateChange="handleDateChange" ref="searchDateDom" class="date"> </lin-date-picker>
       </div>

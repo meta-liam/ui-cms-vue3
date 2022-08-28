@@ -29,18 +29,23 @@ export default class User {
    * @param { String } captcha 验证码
    * @param { String } tag 验证码签名
    */
-  static async getToken(username, password, captcha, tag) {
+  static async getToken(email, password, captcha, tag) {
+    const data = {
+      name: email,
+      client: 1,
+      loginFlag: 0,
+      password,
+      type: 12,
+      captcha,
+      tag,
+    }
     const tokens = await _axios({
-      url: 'cms/user/login',
+      url: 'cms-api/v1/login',
       method: 'POST',
-      data: {
-        captcha,
-        username,
-        password,
-      },
-      headers: {
-        tag,
-      },
+      data,
+      // headers: {
+      //   tag,
+      // },
     })
     saveTokens(tokens.access_token, tokens.refresh_token)
     return tokens
@@ -50,18 +55,18 @@ export default class User {
    * 获取当前用户信息，并返回User实例
    */
   static async getInformation() {
-    const info = await get('cms/user/information')
+    const info = await get('cms-api/v1/cms/user/information')
     const storeUser = store.getters.user === null ? {} : store.getters.user
-    return Object.assign({ ...storeUser }, info)
+    return { ...storeUser, ...info }
   }
 
   /**
    * 获取当前用户信息和所拥有的权限
    */
   static async getPermissions() {
-    const info = await get('cms/user/permissions')
+    const info = await get('cms-api/v1/cms/user/permissions')
     const storeUser = store.getters.user === null ? {} : store.getters.user
-    return Object.assign({ ...storeUser }, info)
+    return { ...storeUser, ...info }
   }
 
   /**
@@ -73,9 +78,19 @@ export default class User {
   // eslint-disable-next-line camelcase
   static updatePassword({ old_password, new_password, confirm_password }) {
     return put('cms/user/change_password', {
+      // eslint-disable-next-line camelcase
       new_password,
+      // eslint-disable-next-line camelcase
       confirm_password,
+      // eslint-disable-next-line camelcase
       old_password,
+    })
+  }
+
+  static getCaptcha() {
+    return _axios({
+      method: 'POST',
+      url: 'cms-api/v1/cms/user/captcha',
     })
   }
 }

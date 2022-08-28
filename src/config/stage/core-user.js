@@ -3,10 +3,11 @@ const userRouter = {
   name: null,
   title: '用户管理',
   type: 'folder', // 类型: folder, tab, view
-  icon: 'iconfont icon-tushuguanli',
+  icon: 'iconfont icon-huiyuanguanli',
   filePath: 'view/cms-core/user/', // 文件路径
-  order: null,
+  order: 20,
   inNav: true,
+  permission: ['core-users'],
   children: [
     {
       title: '用户列表',
@@ -15,7 +16,8 @@ const userRouter = {
       route: '/cms/user/list',
       filePath: 'view/cms-core/user/list.vue',
       inNav: true,
-      icon: 'iconfont icon-add',
+      permission: ['core-user-list'],
+      icon: 'iconfont icon-huiyuanguanli',
     },
     {
       title: '权限列表',
@@ -24,7 +26,8 @@ const userRouter = {
       route: '/cms/rbac/power-list',
       filePath: 'view/cms-core/rbac/power-list.vue',
       inNav: true,
-      icon: 'iconfont icon-add',
+      permission: ['core-rbac-powers'],
+      icon: 'iconfont icon-yunyingguanli_fuwufenzuguanli',
     },
     {
       title: '角色列表',
@@ -33,7 +36,8 @@ const userRouter = {
       route: '/cms/rbac/role-list',
       filePath: 'view/cms-core/rbac/role-list.vue',
       inNav: true,
-      icon: 'iconfont icon-add',
+      permission: ['core-rbac-roles'],
+      icon: 'iconfont icon-tushuguanli',
     },
   ],
 }
