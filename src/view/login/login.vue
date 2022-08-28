@@ -35,7 +35,7 @@ import Config from '@/config'
 
 export default {
   setup() {
-    let tag = ''
+    const tag = ''
     const wait = 2000 // 2000ms之内不能重复发起请求
     const loading = ref(false)
     const captchaImage = ref('')
@@ -72,7 +72,7 @@ export default {
 
     const getCaptcha = async () => {
       const result = await UserModel.getCaptcha()
-      tag = result
+      // tag = result.msg
       captchaImage.value = result.image
     }
 

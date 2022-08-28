@@ -2,7 +2,12 @@
   <div class="liam_container">
     <div class="title">
       <div class="search_box">
-        <el-button v-permission="['core-user-add']" type="primary" plain class="add" @click="callBack('add', {})"
+        <el-button
+          v-permission="{ permission: 'core-user-add', type: 'disabled' }"
+          type="primary"
+          plain
+          class="add"
+          @click="callBack('add', {})"
           >新加用户</el-button
         >
         <lin-search @query="onQueryChange" ref="searchKeywordDom" class="search" />

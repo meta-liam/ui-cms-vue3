@@ -7,6 +7,8 @@ import store from '@/store'
  * @param {*} permissions 当前管理员所在分组权限集
  */
 function isAllowed(permission, user, permissions) {
+  // eslint-disable-next-line no-param-reassign
+  permissions = user?.permissions
   if (user.admin) return true
 
   if (typeof permission === 'string') {
