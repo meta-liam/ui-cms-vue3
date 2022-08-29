@@ -21,6 +21,7 @@ const dataItem = {
   email: '',
   password: '',
   roleIds: [],
+  psw: '',
 }
 
 const optionsStatus = [
@@ -71,6 +72,13 @@ const addOrEditItem = async db => {
 const deleteItem = async idx => {
   const rs = await User.delete(idx)
   console.log('deleteItem :', rs)
+  return true
+}
+
+export const adminUpdateUserPsw = async item => {
+  const db = { id: item.id, password: item.psw }
+  await User.adminChangeUserPassword(db)
+  // console.log('deleteItem :', rs)
   return true
 }
 

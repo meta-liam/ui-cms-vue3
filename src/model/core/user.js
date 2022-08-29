@@ -37,6 +37,14 @@ class User {
     })
   }
 
+  async adminChangeUserPassword(data) {
+    return _axios({
+      method: 'put',
+      url: 'cms-api/v1/cms/user/admin-up-psw',
+      data,
+    })
+  }
+
   async refresh(data) {
     return _axios({
       method: 'get',

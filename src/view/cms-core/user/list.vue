@@ -60,7 +60,7 @@ import LinSearch from '@/component/base/search/lin-search'
 import LinDatePicker from '@/component/base/date-picker/lin-date-picker'
 import { ElMessage } from 'element-plus'
 import ItemEdit from './components/edit'
-import { getItems, addOrEditItem, setAddNew, setEditData, deleteItem } from './user'
+import { getItems, addOrEditItem, setAddNew, setEditData, deleteItem, adminUpdateUserPsw } from './user'
 
 export default {
   components: {
@@ -124,6 +124,10 @@ export default {
       switch (ty) {
         case 'form-cancel':
           drawer.value = false
+          break
+        case 'form-submit-psw':
+          await adminUpdateUserPsw(db)
+          ElMessage({ message: '[密码更新成功]', type: 'success' })
           break
         case 'form-submit':
           // eslint-disable-next-line no-case-declarations

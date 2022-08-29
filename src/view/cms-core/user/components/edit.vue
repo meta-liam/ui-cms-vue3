@@ -8,6 +8,9 @@
     size="default"
     status-icon
   >
+    <el-form-item label="UserID" prop="id" v-if="ruleForm.id !== '0'">
+      {{ ruleForm.id }}
+    </el-form-item>
     <el-form-item label="邮件" prop="email">
       <el-input v-model="ruleForm.email" style="width: 50%" disabled v-if="ruleForm.id !== '0'" />
       <el-input v-model="ruleForm.email" style="width: 50%" v-if="ruleForm.id === '0'" />
@@ -27,7 +30,7 @@
       </el-select>
     </el-form-item>
     <el-form-item label="电话" prop="phone">
-      <el-input v-model="ruleForm.phone" style="width: 20%" />
+      <el-input v-model="ruleForm.phone" style="width: 50%" />
     </el-form-item>
     <el-form-item label="角色" prop="roleIds">
       <el-checkbox-group v-model="ruleForm.roleIds" @change="handleCheckedChange">
@@ -35,10 +38,19 @@
       </el-checkbox-group>
     </el-form-item>
     <el-form-item label="备注" prop="remark">
-      <el-input v-model="ruleForm.remark" style="width: 20%" />
+      <el-input v-model="ruleForm.remark" style="width: 50%" />
+    </el-form-item>
+    <el-form-item label="修改密码">
+      <div>
+        <el-switch v-model="changePsw" />
+      </div>
+      <div v-if="changePsw" class="edit-psw">
+        <el-input v-model="ruleForm.psw" style="width: 20vw" />
+        <el-button type="primary" @click="pswSubmitForm(ruleFormRef, $event)">修改密码</el-button>
+      </div>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm(ruleFormRef, $event)">提交</el-button>
+      <el-button type="primary" @click="submitForm($event)">提交</el-button>
       <el-button @click="resetForm(ruleFormRef, $event)">取消</el-button>
     </el-form-item>
   </el-form>
@@ -46,12 +58,9 @@
 
 <script>
 import { reactive, ref, getCurrentInstance, onMounted } from 'vue'
+import { ElMessage } from 'element-plus'
 import { rules, optionsStatus, getRoles } from '../user'
-// import type { FormInstance, FormRules } from 'element-plus'
 
-// const roles = [
-//   { id: '1', name: 'na' }, { id: '2', name: 'na2' }
-// ]
 export default {
   props: {
     item: {},
@@ -63,6 +72,7 @@ export default {
     const ruleForm = reactive({
       ...props.item,
     })
+    const changePsw = ref(false)
     // const reste = { ...dataItem }
     const { proxy } = getCurrentInstance()
     const callBack = (ty, item, event) => {
@@ -72,6 +82,14 @@ export default {
         // eslint-disable-next-line no-unused-expressions
         event.stopPropagation ? event.stopPropagation() : (event.cancelBubble = true)
       }
+    }
+    const pswSubmitForm = async event => {
+      console.log('psw:', ruleForm.psw)
+      if (ruleForm.psw === '') {
+        ElMessage({ message: '[密码不为空]', type: 'error' })
+        return
+      }
+      callBack('form-submit-psw', ruleForm, event)
     }
     const submitForm = async (formEl, event) => {
       console.log('ruleForm:', ruleForm)
@@ -96,7 +114,18 @@ export default {
       roles.value = db.list
       console.log('powerTree.value:', roles.value)
     })
-    return { roles, handleCheckedChange, optionsStatus, resetForm, submitForm, rules, ruleForm, ruleFormRef }
+    return {
+      pswSubmitForm,
+      changePsw,
+      roles,
+      handleCheckedChange,
+      optionsStatus,
+      resetForm,
+      submitForm,
+      rules,
+      ruleForm,
+      ruleFormRef,
+    }
   },
 }
 </script>
@@ -105,5 +134,14 @@ export default {
 .decs {
   font-size: 12px;
   line-height: 16px;
+}
+
+.edit-psw {
+  float: left;
+}
+
+.edit-psw input {
+  margin-right: 10px;
+  margin-left: 10px;
 }
 </style>

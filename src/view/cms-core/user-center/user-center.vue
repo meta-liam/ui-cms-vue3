@@ -8,6 +8,9 @@
     size="default"
     status-icon
   >
+    <el-form-item label="UserID">
+      {{ ruleForm.id }}
+    </el-form-item>
     <el-form-item label="邮箱">
       {{ ruleForm.email }}
     </el-form-item>
@@ -32,6 +35,7 @@
 <script>
 import { onMounted, ref } from 'vue'
 import { ElMessage } from 'element-plus'
+import store from '@/store'
 import { getInfo, rules, updateUserPsw } from './user'
 
 export default {
@@ -64,9 +68,15 @@ export default {
       }
     }
     onMounted(async () => {
+      const us = store.state.user
+      console.log('用户信息:', us)
+      if (!us || us.id === '0') {
+        console.log('用户没登录')
+      }
       const info = await getInfo()
       // eslint-disable-next-line no-const-assign
       ruleForm.value = { ...info }
+      // console.log('user:', store.state.user)
     })
     return { rules, ruleForm, submitForm, ruleFormRef }
   },
