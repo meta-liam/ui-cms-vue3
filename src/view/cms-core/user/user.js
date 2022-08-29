@@ -40,7 +40,7 @@ const rules = {
 }
 const getItems = async v => {
   const rs = await User.getItems(v)
-  console.log('getItems:', rs)
+  // console.log('getItems:', rs)
   const db = {
     list: [],
     pagination: {},

@@ -24,7 +24,7 @@ let homeRouter = [
     type: 'view',
     name: Symbol('center'),
     route: '/center',
-    filePath: 'view/center/center.vue',
+    filePath: 'view/cms-core/user-center/user-center.vue',
     inNav: false,
     icon: 'iconfont icon-rizhiguanli',
   },
