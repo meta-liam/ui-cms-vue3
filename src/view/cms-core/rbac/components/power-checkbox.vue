@@ -3,6 +3,7 @@
     <el-tree
       :data="powerTree"
       show-checkbox
+      check-strictly="true"
       node-key="id"
       :default-expanded-keys="['1']"
       :default-checked-keys="ruleForm.powerIds"
