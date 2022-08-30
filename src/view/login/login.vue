@@ -2,9 +2,11 @@
 <!-- eslint-disable vuejs-accessibility/form-control-has-label -->
 <template>
   <div class="login">
-    <div class="team-name hidden-sm-and-down"><img src="@/assets/image/login/team-name.png" alt="logo" /></div>
+    <div class="team-name hidden-sm-and-down">
+      <div class="oneWrite">大道至简</div>
+    </div>
     <div class="form-box" v-loading="loading" element-loading-background="rgba(0, 0, 0, 0)">
-      <div class="title"><h1 title="Lin">Lin CMS</h1></div>
+      <div class="title"><h1 title="Lin">数据管理中心</h1></div>
       <form class="login-form" autocomplete="off" @submit.prevent="throttleLogin()">
         <div class="form-item nickname">
           <span class="icon account-icon"></span>
@@ -202,5 +204,11 @@ export default {
       }
     }
   }
+}
+.oneWrite {
+  width: 24px;
+  margin: 0 auto;
+  line-height: 28px;
+  font-size: 22px;
 }
 </style>
