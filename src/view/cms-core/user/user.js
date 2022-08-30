@@ -15,7 +15,7 @@ const dataItem = {
   created: '',
   updated: '',
   nickname: '',
-  status: 0,
+  status: 1,
   phone: '',
   remark: '',
   email: '',

@@ -40,17 +40,17 @@
     <el-form-item label="备注" prop="remark">
       <el-input v-model="ruleForm.remark" style="width: 50%" />
     </el-form-item>
-    <el-form-item label="修改密码">
+    <el-form-item label="修改密码" v-if="ruleForm.id !== '0'">
       <div>
         <el-switch v-model="changePsw" />
       </div>
       <div v-if="changePsw" class="edit-psw">
         <el-input v-model="ruleForm.psw" style="width: 20vw" />
-        <el-button type="primary" @click="pswSubmitForm(ruleFormRef, $event)">修改密码</el-button>
+        <el-button type="primary" @click="pswSubmitForm($event)">修改密码</el-button>
       </div>
     </el-form-item>
     <el-form-item>
-      <el-button type="primary" @click="submitForm($event)">提交</el-button>
+      <el-button type="primary" @click="submitForm(ruleFormRef, $event)">提交</el-button>
       <el-button @click="resetForm(ruleFormRef, $event)">取消</el-button>
     </el-form-item>
   </el-form>
