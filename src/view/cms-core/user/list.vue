@@ -31,8 +31,19 @@
       <el-table-column prop="remark" label="备注" width="100" />
       <el-table-column fixed="right" label="Operations" width="180">
         <template #default="scope">
-          <el-button size="small" @click="callBack('edit', scope.row)">Edit</el-button>
-          <el-button size="small" type="danger" @click="callBack('delete', scope.row.id)">Delete</el-button>
+          <el-button
+            size="small"
+            @click="callBack('edit', scope.row)"
+            v-permission="{ permission: 'core-user-edit', type: 'disabled' }"
+            >Edit</el-button
+          >
+          <el-button
+            size="small"
+            type="danger"
+            @click="callBack('delete', scope.row.id)"
+            v-permission="{ permission: 'core-user-delete', type: 'disabled' }"
+            >Delete</el-button
+          >
         </template>
       </el-table-column>
     </el-table>
